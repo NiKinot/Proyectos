@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chemistry Quality</title>
+  <style>
+    body {
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2a3d66;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 15px;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    main h1 {
+      margin-top: 0;
+    }
+    .input-group {
+      margin: 20px 0;
+      display: flex;
+    }
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .input-group input:focus {
+      border-color: #2a3d66;
+    }
+    .input-group button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background: #2a3d66;
+      color: #fff;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .input-group button:hover {
+      background: #1f2e55;
+    }
+    .history {
+      margin-top: 30px;
+    }
+    .history h2 {
+      margin-bottom: 10px;
+    }
+    .history ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .history li {
+      background: #f7fafc;
+      padding: 8px 12px;
+      border-left: 4px solid #2a3d66;
+      margin-bottom: 8px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Chemistry Quality ⚗️</div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Ayuda</a>
+      <a href="#">Perfil</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Balancear ecuación química</h1>
+    <div class="input-group">
+      <input type="text" placeholder="e.g., H₂ + O₂ → H₂O" id="reactionInput">
+      <button id="balanceButton">Balancear</button>
+    </div>
+
+    <div class="history">
+      <h2>Historial</h2>
+      <ul id="historyList">
+        <li>4NH₃ + 5O₂ → 4NO + 6H₂O</li>
+        <!-- Más reacciones -->
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    const btn = document.getElementById('balanceButton');
+    const input = document.getElementById('reactionInput');
+    const hist = document.getElementById('historyList');
+
+    btn.onclick = () => {
+      const eq = input.value.trim();
+      if (!eq) return;
+      // Aquí llamarías a tu función/servicio que balancea la ecuación
+      // Supongamos que devuelve '2H₂ + O₂ → 2H₂O'
+      const balanced = balanceEquation(eq); // implementar aparte
+      const li = document.createElement('li');
+      li.textContent = balanced;
+      hist.prepend(li);
+      input.value = '';
+    };
+
+    function balanceEquation(raw) {
+      // placeholder de ejemplo:
+      return '2H₂ + O₂ → 2H₂O';
+    }
+  </script>
+
+</body>
+</html>
