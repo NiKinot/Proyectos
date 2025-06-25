@@ -1,2 +1,0 @@
-# Proyectos
-Proyecto Quimica
